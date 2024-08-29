@@ -1,4 +1,9 @@
-﻿using System.Text.Json;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text.Json;
+using System.Threading.Tasks;
 using CommandLine;
 using StackExchange.Redis;
 
@@ -77,6 +82,7 @@ class Program
         var server = _redis.GetServer(_redis.GetEndPoints().First());
         var keys = server.KeysAsync(_options.DatabaseIndex);
         var json = new Dictionary<string, object>();
+        var count = 0;
 
         await foreach (var key in keys)
         {
@@ -105,11 +111,15 @@ class Program
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+            
+            count++;
         }
         
         var jsonStr = JsonSerializer.Serialize(json, new JsonSerializerOptions {WriteIndented = true});
         
         await File.WriteAllTextAsync(_options.FilePath!, jsonStr);
+        
+        Console.WriteLine($"Exported {count} keys to {_options.FilePath}");
     }
 
     private static async Task ExportHashKeyToJson(IDatabase db, RedisKey key, Dictionary<string,object> json)
