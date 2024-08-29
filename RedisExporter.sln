@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisExporter", "RedisExporter.csproj", "{A187127C-7012-4F44-B55C-6D32EAEBB89C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A187127C-7012-4F44-B55C-6D32EAEBB89C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A187127C-7012-4F44-B55C-6D32EAEBB89C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A187127C-7012-4F44-B55C-6D32EAEBB89C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A187127C-7012-4F44-B55C-6D32EAEBB89C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
